@@ -1,0 +1,25 @@
+
+/* ==UserStyle==
+@name			GoogleSearch_GASHidden
+@description	Googleの検索結果からgoogleadservicesのものを非表示にする。（ドメインをブロックしていてリンクに意味がなく邪魔な方用)
+@namespace		https://github.com/Winding6636
+@version		0.1.1
+@author			Winding(kazuki.xyz)
+@homepageURL	https://github.com/Winding6636/ThanatoStylUserCSS
+@supportURL		https://github.com/Winding6636/ThanatoStylUserCSS/issues
+@updateURL		https://github.com/Winding6636/ThanatoStylUserCSS/googlead/googlesearch_gashidden.user.styl
+@license		MIT
+@preprocessor	stylus
+
+==/UserStyle== */
+
+@-moz-document url-prefix("https://www.google.co.jp/search?"), regexp("^https://www.google.co.jp/search?") {
+
+	.cu-container {
+		display: none;
+	}
+
+	li.ads-ad {
+		display: none;
+    }
+}
