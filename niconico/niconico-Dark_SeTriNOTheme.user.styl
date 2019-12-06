@@ -1,12 +1,12 @@
 /* ==UserStyle==
 @name           Niconico DarkTheme By SeTriNO
 @namespace      Winding
-@version        1.4.2
-@revision        312
+@version        1.5.0
+@revision        330
 @description    Niconico Dark Theme & Custom CSS & Ad,Rec Block :: Project SeTriNO ::
 @author         Winding (kazuki.xyz), NekotenYuuna (nek010n.tk)
-@homepageURL	https://gist.github.com/Winding6636/37200ec2173d6b4319f4c50df595f52a
-@supportURL	https://gist.github.com/Winding6636/37200ec2173d6b4319f4c50df595f52a
+@homepageURL	https://github.com/Winding6636/ThanatoStylUserCSS
+@supportURL	https://github.com/Winding6636/ThanatoStylUserCSS/issues
 @license        MIT
 @preprocessor   stylus
 
@@ -39,6 +39,7 @@ Integration Style Theme Codes
 :: 7/15 動画ページの一部コード変更に対応、HTMLPlayerの細部のテーマ適用。(マイリスト/NG/共有)
 	ホバーカラーをやっと変えた。
 :: 8/28 ページ再ビルドによる些細なるコード変更
+:: 12/7 構成変更に伴うコード変更
 
 */
 
@@ -158,7 +159,8 @@ body {
 .___header-skin___2xVaP,
 .___header-skin___CIVUe,
 .___header___IlpMt,
-.___header___1M2Xi{
+.___header___1M2Xi,
+.___tab-list___2Db6X {
 	background-color: #222222;
 	border-color: #222222;
 }
@@ -278,7 +280,7 @@ button.___submit-button___1d-NX ,.___submit-button___3jg7l {
 .___level-counter-skin___xhNf5,
 .___level-counter-skin___3dMOJ,
 .___program-title-skin___10pz_,
-.___program-title___ghFah,.___program-title___1_oiT,
+.___program-title___ghFah,.___program-title___1_oiT,.___program-title___3kSQv,
 .___description-skin___3PwLQ,
 .___section-title-skin___1gN5q,
 .___section-title___C99pl,
@@ -300,6 +302,7 @@ button.___submit-button___1d-NX ,.___submit-button___3jg7l {
 .___room-information___2kG81>[class*=___room-name___],
 .___room-information___1cPBu>[class*=___room-name___],
 .___onair-time___2XibN ,.___onair-time___sfnHU,.___onair-time___ezyFY,
+.___airtime___1A2J2,
 .___onair-time-skin___1wHiv,
 .___summary___2MTjd,.___social-group-anchor___2nkQh,.___level-counter___1LK2B,.___social-group-menu___2sA85,.___description-expandable-area___1ABq7,
 .___social-group-anchor___1B3Hy,.___level-counter___2YZeE,.___description___3-__b[aria-expanded=false],.___description___3-__b[aria-expanded=true],
@@ -312,22 +315,25 @@ button.___submit-button___1d-NX ,.___submit-button___3jg7l {
 .___level___15r7_,.___level___2Pj85, /* レベル */
 .___nicoad-count___3yujW > span > button, /*コメント欄カウント文字*/
 .___gift-count___3g8F_ > span > button, /*ギフトカウント文字*/
-.___heading-title___2wFBu,.___heading-title___2_0FP, /* おすすめ放送中番組文字*/
-.___label___2Fzku,.___label___Y3x4V, /*おすすめ放送文字*/
-.___prev-button___2OjoL:before,.___prev-button___u2Upe:before, /*おすすめ前*/
-.___prev-button___2OjoL:after,.___prev-button___u2Upe:after,
-.___next-button___OBcLf:before,.___next-button___D4OQR:before, /*おすすめ次*/
-.___refresh-button___1mnJm, /* おすすめ 更新 */
 .___image-guide___Adcbb, /*終了テキスト*/
 .___tag-widget___2CxNW [class*=___tag-register-form___] [class*=___faq-anchor___]:after /* タグedit_help */,
-.___tag-widget___2CxNW [class*=___edit-button___] /* タグedit */
+.___tag-widget___2CxNW [class*=___edit-button___] /* タグedit */,
+.___statistics-item___s3Pvn>span>button,
+.___statistics-item___s3Pvn>span>span, /* コメント/おすすめタブ */
+.___heading___14I8Y, /* 関連コンテンツ */
+.___content-title___uHN8q /* 関連タイトル */
 {
 	color: white !important;
 }
 
-.___onair-time___xWLfr {
-	color: #656565;
+/* TextBlack */
+.___program-card___x3vdg:hover p {
+	color: black !important;
 }
+
+/* .___onair-time___xWLfr, {
+	color: gray;
+}*/
 
 /* Notification 多分随時変更 */
 .___notification-bar___25Sl8 {
@@ -410,10 +416,12 @@ ___broadcast-participation-area___2_M2S {
 }
 
 /* FullScreen HTML Player*/
-.___leo-player___Rvz7R[data-fullscreen-layout] [class*=___ichiba-launcher___]+.___comment-post-panel___hmyxV {
+.___leo-player___Rvz7R[data-fullscreen-layout] [class*=___ichiba-launcher___]+.___comment-post-panel___hmyxV,
+.___leo-player___Rvz7R[data-fullscreen-layout] .___comment-post-panel___hmyxV {
 	max-width : 1280px;
 }
-.___leo-player___Rvz7R[data-fullscreen-layout] .___ichiba-launcher___g14ej {
+.___leo-player___Rvz7R[data-fullscreen-layout] .___ichiba-launcher___g14ej,
+.___leo-player___Rvz7R[data-fullscreen-layout] .___ichiba-counter___15Yri {
 	display : none;/*フルスクリーンで市場非表示*/
 }
 .___leo-player___Rvz7R[data-fullscreen-layout] .___player-display___35bAr .___player-display-footer___2DTQK:before {
@@ -428,6 +436,7 @@ ___broadcast-participation-area___2_M2S {
     background-color: #222222;
 }
 /*NG Text*/
+.___heading___Ej5Kv,
 .___header-cell___Cg80J,
 .___ng-panel___2Dau-,
 .___ng-delete-button___2I-AE:enabled{
@@ -438,7 +447,7 @@ ___broadcast-participation-area___2_M2S {
 .___select-box___2xnyY,
 .___tooltip___2GW8j{
 	color: white;
-    background-color: #444444;
+	background-color: #444444;
 }
 
 .___ng-panel-controller___1Qaf9>[class*=___ng-button___][aria-expanded=true] {
@@ -457,11 +466,9 @@ ___broadcast-participation-area___2_M2S {
 }
 
 /* svg icon color*/
-.___statistics-item___s3Pvn>svg>path,/**/
-.___ng-button___llpCj path,/*NGボタン*/
-.___refresh-button___2Ybxv>svg>path,.___refresh-button___1mnJm>svg>path, /*おすすめ放送関連ボタン↓*/
-.___next-button___OBcLf>svg>path,.___next-button___D4OQR>svg>path, /**/
-.___prev-button___2OjoL>svg>path,.___prev-button___u2Upe>svg>path {
+.___statistics-item___s3Pvn>svg>path, /**/
+.___ng-button___llpCj path, /*NGボタン*/
+.___symbol-mark___3ahYk>path {
 	fill : white;
 }
 
@@ -1351,6 +1358,11 @@ aside[class*="banner-ad"],aside[class*="banner-panel"],aside[class*="program-inf
 .___billboard-ad___lwBmz ,.___ga-ns-billboard-ad___38JfR ,.___billboard-ad___2wf3q {
 	display: none;
 }
+}
+
+/* ニコ生アプリ広告 */
+.___app-download-banner___3tmZG {
+	display: none;
 }
 
 @-moz-document url-prefix("http://www.nicovideo.jp/") {
