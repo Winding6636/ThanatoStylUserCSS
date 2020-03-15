@@ -1,0 +1,230 @@
+/* ==UserStyle==
+@name           GMail ViewCustom
+@namespace      Winding
+@version        0.5.12
+@description    Apply Custom Style GMail
+@author         Winding <info@mbius.io>
+@homepageURL    https://github.com/Winding6636/ThanatoStylUserCSS
+@supportURL     https://github.com/Winding6636/ThanatoStylUserCSS/issues
+@license        MIT
+@preprocessor   stylus
+
+Account/0
+@var            checkbox  AddonBar   "u0: Add-Onバー" 0
+@var            select    TabBar           "u0: CateTab-Size" {
+                                            "Default": "default",
+                                            "Medium": "medium",
+                                            "Small": "small"
+                                        }
+@var            select    HeadBar           "u0: TopBar-Size" {
+                                            "Default": "default",
+                                            "Medium": "medium"
+                                        }
+
+Account/1
+@var            checkbox  AddonBar1   "u1: Add-Onバー" 0
+@var            select    TabBar1           "u1: CateTab-Size" {
+                                            "Default": "default",
+                                            "Medium": "medium",
+                                            "Small": "small"
+                                        }
+@var            select    HeadBar1           "u1: TopBar-Size" {
+                                            "Default": "default",
+                                            "Medium": "medium"
+                                        }
+
+Account/2
+@var            checkbox  AddonBar2   "u2: Add-Onバー" 0
+@var            select    TabBar2           "u2: CateTab-Size" {
+                                            "Default": "default",
+                                            "Medium": "medium",
+                                            "Small": "small"
+                                        }
+@var            select    HeadBar2           "u2: TopBar-Size" {
+                                            "Default": "default",
+                                            "Medium": "medium"
+                                        }
+
+==/UserStyle== */
+@-moz-document regexp("https://mail.google.com/mail/u/0/.+") {
+/* 上部 */
+if HeadBar==default{
+
+}
+if HeadBar==medium{
+    .gb_Od {
+        height: 40px;
+    }
+
+    .gb_Sc {
+        height: 20px;
+    }
+
+    .gb_Ie,
+    .gb_vf {
+        height: 30px;
+    }
+
+    .gb_Ue button svg {
+        padding: 0px;
+    }
+
+    .gstt {
+        height: 10px !important;
+    }
+
+    .gb_ff:not(.gb_wf) {
+        padding: 5px 0;
+    }
+}
+/* 上部 */
+
+/* メールタブ */
+if TabBar==default {
+    .aKh {
+        height: 56px;
+    }
+}
+
+if TabBar==medium {
+    .aKh {
+        height: 30px;
+    }
+}
+
+if TabBar==small {
+    .aKh {
+        height: 20px;
+    }
+}
+
+/* 右のバー */
+if AddonBar {
+	.bAw {
+		display: none
+	}
+}
+
+}/* moz-document domain */
+
+@-moz-document regexp("https://mail.google.com/mail/u/1/.+") {
+/* 上部 */
+if HeadBar==default{
+
+}
+if HeadBar==medium{
+    .gb_Od {
+        height: 40px;
+    }
+
+    .gb_Sc {
+        height: 20px;
+    }
+
+    .gb_Ie,
+    .gb_vf {
+        height: 30px;
+    }
+
+    .gb_Ue button svg {
+        padding: 0px;
+    }
+
+    .gstt {
+        height: 10px !important;
+    }
+
+    .gb_ff:not(.gb_wf) {
+        padding: 5px 0;
+    }
+}
+/* 上部 */
+
+/* メールタブ */
+if TabBar==default {
+    .aKh {
+        height: 56px;
+    }
+}
+
+if TabBar==medium {
+    .aKh {
+        height: 30px;
+    }
+}
+
+if TabBar==small {
+    .aKh {
+        height: 20px;
+    }
+}
+
+/* 右のバー */
+if AddonBar {
+	.bAw {
+		display: none
+	}
+}
+
+}/* moz-document domain */
+
+@-moz-document regexp("https://mail.google.com/mail/u/2/.+") {
+/* 上部 */
+if HeadBar==default{
+
+}
+if HeadBar==medium{
+    .gb_Od {
+        height: 40px;
+    }
+
+    .gb_Sc {
+        height: 20px;
+    }
+
+    .gb_Ie,
+    .gb_vf {
+        height: 30px;
+    }
+
+    .gb_Ue button svg {
+        padding: 0px;
+    }
+
+    .gstt {
+        height: 10px !important;
+    }
+
+    .gb_ff:not(.gb_wf) {
+        padding: 5px 0;
+    }
+}
+/* 上部 */
+
+/* メールタブ */
+if TabBar==default {
+    .aKh {
+        height: 56px;
+    }
+}
+
+if TabBar==medium {
+    .aKh {
+        height: 30px;
+    }
+}
+
+if TabBar==small {
+    .aKh {
+        height: 20px;
+    }
+}
+
+/* 右のバー */
+if AddonBar {
+	.bAw {
+		display: none
+	}
+}
+
+}/* moz-document domain */
