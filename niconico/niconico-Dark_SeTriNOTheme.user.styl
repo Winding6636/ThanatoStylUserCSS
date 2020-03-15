@@ -43,7 +43,7 @@ Integration Style Theme Codes
 
 
 ==/UserStyle== */
-@-moz-document url-prefix("http://live2.nicovideo.jp/"), url-prefix("https://live2.nicovideo.jp/") {
+@-moz-document regexp("https?://live2.nicovideo.jp/watch/.*") {
 /*
 :⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:
   Themes Dark Style in ncLives
@@ -487,7 +487,7 @@ ___broadcast-participation-area___2_M2S {
 
 }
 
-@-moz-document url-prefix("http://www.nicovideo.jp/watch/"), url-prefix("https://www.nicovideo.jp/watch/") {
+@-moz-document regexp("https?://www.nicovideo.jp/watch/.*") {
 /*
 :⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:
   Themes Dark Style in ncVideos
@@ -1193,7 +1193,7 @@ body #PAGECONTAINER {
 }
 }
 
-@-moz-document url-prefix("http://www.nicovideo.jp/"), url-prefix("http://seiga.nicovideo.jp/"), url-prefix("http://live.nicovideo.jp/"), url-prefix("https://com.nicovideo.jp/"), url-prefix("http://live2.nicovideo.jp/"), domain("nicovideo.jp") {
+@-moz-document regexp("https?://(www\\.|live2\\.|com\\.|seiga\\.)?nicovideo\\.jp/.*") {
 /*
 :⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:
   Themes Dark Style in ncMenuHeader Simple
@@ -1246,7 +1246,7 @@ a#btn_usermenu_join {
 }
 }
 
-@-moz-document url-prefix("http://www.nicovideo.jp/watch/") {
+@-moz-document regexp("https?://www.nicovideo.jp/watch/.*") {
 /*
 :⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:
   AdHidden Style in ncVideos
@@ -1319,7 +1319,7 @@ a[href*="video_tag_marquee"] + button,
 /* コメントパネル下部 再生開始後の広告エリア生成キャンセル */
 }
 
-@-moz-document url-prefix("http://live2.nicovideo.jp/"), url-prefix("http://live.nicovideo.jp/"), url-prefix("https://live.nicovideo.jp/"), url-prefix("https://live2.nicovideo.jp/") {
+@-moz-document regexp("https?://live2.nicovideo.jp/watch/.*") {
 /*
 :⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:
   AdHidden Style in ncLives
@@ -1371,7 +1371,7 @@ aside[class*="banner-ad"],aside[class*="banner-panel"],aside[class*="program-inf
 	display: none;
 }
 
-@-moz-document url-prefix("http://www.nicovideo.jp/") {
+@-moz-document regexp("https?://www.nicovideo.jp/.*") {
 /*
 :⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:
   AdHidden Style in Niconico
@@ -1743,7 +1743,7 @@ img[src*="http://uni.res.nimg.jp/img/index_overseas/bnr/"],
 /* 動画トップ他 ヘッダ高さ */
 }
 
-@-moz-document url("https://www.nicovideo.jp/my/live") {
+@-moz-document regexp("https?://www.nicovideo.jp/my/live") {
 /* :⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:
 				Users Code
 :⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅: */
@@ -1753,7 +1753,7 @@ img[src*="http://uni.res.nimg.jp/img/index_overseas/bnr/"],
 }
 }
 
-@-moz-document url-prefix("https://nicoad.nicovideo.jp/video/publish/") {
+@-moz-document regexp("https?://nicoad.nicovideo.jp/video/publish/.*") {
 /* :⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:
 		            NiconiKoukoku Style
 :⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅: */
