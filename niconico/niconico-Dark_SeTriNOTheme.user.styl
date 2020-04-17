@@ -1,8 +1,8 @@
 /* ==UserStyle==
 @name           Niconico DarkTheme By SeTriNO
 @namespace      Winding
-@version        1.6.0
-@revision        353
+@version        1.7.0
+@revision        357
 @description    Niconico Dark Theme & Custom CSS & Ad,Rec Block :: Project SeTriNO ::
 @author         Winding (kazuki.xyz), NekotenYuuna (nek010n.tk)
 @homepageURL	https://github.com/Winding6636/ThanatoStylUserCSS
@@ -17,9 +17,17 @@ Integration Style Theme Codes
 
 :: 2020/01/09 ページ再ビルド対応 + 微修正
 :: 03/15 コードミス修正。正規表現に変更
+:: 04/17 色々修正。設定機能仮追加(Live向け)
+
+
+nicoLive
+@var            checkbox  CommentOrder   "LIVE: コメント欄位置替え" 1
+@var            checkbox  InfoTagOrder   "LIVE: 放送情報位置替え" 0
+@var            checkbox  TabListOrder   "LIVE: コメントタブ位置替え" 0
 
 
 ==/UserStyle== */
+
 @-moz-document regexp("https?://live2.nicovideo.jp/watch/.*") {
 	/*
 	:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:
@@ -224,38 +232,21 @@ Integration Style Theme Codes
 	}
 
 	/* txcolor */
-	.___page___2CAWS,
-	.___page___1G6yH,
+	.___page___2CAWS, .___page___1G6yH,
 	.___name-anchor-skin___2fTmA,
-	.___name-anchor___3G-5K,
-	.___name-anchor___3jZCG,
-	.___name-anchor___2bbls,
-	.___edit-button___1C_e3,
-	.___edit-button___3-cI_,
-	.___title___3bTJt,
-	.___title___3kOUl,
-	.___title___2vJQN,
-	.___title___3Ycii,
-	.___title___1aYd0,
-	.___score___3c0D1,
-	.___score___3OoSv,
-	.___score___377rk,
+	.___name-anchor___3G-5K, .___name-anchor___3jZCG, .___name-anchor___2bbls, .___name-anchor___1Y9Wk,
+	.___edit-button___1C_e3, .___edit-button___3-cI_,
+	.___title___3bTJt, .___title___3kOUl, .___title___2vJQN, .___title___3Ycii, .___title___1aYd0,
+	.___score___3c0D1, .___score___3OoSv, .___score___377rk,
 	.___title-skin___1p6jp,
-	.___broadcaster-skin___6NQ0z,
-	.___broadcaster-skin___6NQ0z > a,
-	.___broadcaster___1QMHC,
-	.___broadcaster___1QMHC > a,
-	.___broadcaster___1voH4,
-	.___broadcaster___1voH4 > a,
+	.___broadcaster-skin___6NQ0z, .___broadcaster-skin___6NQ0z > a,
+	.___broadcaster___1QMHC, .___broadcaster___1QMHC > a, .___broadcaster___1voH4, .___broadcaster___1voH4 > a,
 	.___provider-skin___16B-V,
-	.___provider___3MPQj,
-	.___provider___2FMtN,
+	.___provider___3MPQj, .___provider___2FMtN,
 	.___provider-detail___2zO-9,
 	.___title-anchor-skin___12inB,
-	.___level-counter___1GJvG ,
-	.___level-counter___gKDiU,
-	.___level-counter-skin___xhNf5,
-	.___level-counter-skin___3dMOJ,
+	.___level-counter___1GJvG , .___level-counter___gKDiU,
+	.___level-counter-skin___xhNf5, .___level-counter-skin___3dMOJ,
 	.___program-title-skin___10pz_,
 	.___program-title___ghFah,.___program-title___1_oiT,.___program-title___3kSQv,
 	.___description-skin___3PwLQ,
@@ -270,14 +261,11 @@ Integration Style Theme Codes
 	.___page-top-anchor-skin___2NSzG,
 	.___player-status____onQ9,
 	.___room-name___1s_AH,
-	.___header-cell-skin___2GWdU,
-	.___header-cell-skin___TcOUw,
-	.___comment-post-panel___hmyxV,
-	.___comment-post-panel___2LYJa,
+	.___header-cell-skin___2GWdU, .___header-cell-skin___TcOUw,
+	.___comment-post-panel___hmyxV, .___comment-post-panel___2LYJa,
 	.___volume-setting___3-prm,
 	.___player-status___BQ7B7,
-	.___room-information___2kG81>[class*=___room-name___],
-	.___room-information___1cPBu>[class*=___room-name___],
+	.___room-information___2kG81>[class*=___room-name___], .___room-information___1cPBu>[class*=___room-name___],
 	.___onair-time___2XibN ,.___onair-time___sfnHU,.___onair-time___ezyFY,
 	.___airtime___1A2J2,
 	.___onair-time-skin___1wHiv,
@@ -319,8 +307,7 @@ Integration Style Theme Codes
 
 	/* (く) live2 search header */
 	.___site-header-base___1yj6b, /*site-header*/
-	.___site-header___3DNa5,
-	.___site-header___1ImCy,
+	.___site-header___3DNa5, .___site-header___1ImCy,
 	.___site-header___3wgWf {
 		height: 34px;
 	}
@@ -389,8 +376,10 @@ Integration Style Theme Codes
 	___broadcast-participation-area___2_M2S {
 		display:grid;
 	}
-	.___comment-post-panel___hmyxV ,.___ga-ns-comment-post-panel___HEyT3 ,.___comment-post-panel___2LYJa {
-		order : -1;
+	if CommentOrder {
+		.___comment-post-panel___hmyxV , .___ga-ns-comment-post-panel___HEyT3 , .___comment-post-panel___2LYJa {
+			order : -1;
+		}
 	}
 
 	/* FullScreen HTML Player*/
@@ -460,6 +449,19 @@ Integration Style Theme Codes
 	/* info other body */
 	.___body___26PoS {
 		background-color : initial !important;
+	}
+
+	/* LiveInfomationTag */
+	if InfoTagOrder {
+		.___program-panel___2aOon {
+			order: 1;
+		}
+	}
+	/* LiveCommeTag */
+	if TabListOrder {
+		.___tab-list___2Db6X {
+			order: 2;
+		}
 	}
 
 } /* @-moz-document END */
