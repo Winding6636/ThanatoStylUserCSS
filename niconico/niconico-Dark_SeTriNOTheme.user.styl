@@ -2,7 +2,7 @@
 @name           Niconico DarkTheme By SeTriNO
 @namespace      Winding
 @version        1.7.0
-@revision        357
+@revision        358
 @description    Niconico Dark Theme & Custom CSS & Ad,Rec Block :: Project SeTriNO ::
 @author         Winding (kazuki.xyz), NekotenYuuna (nek010n.tk)
 @homepageURL	https://github.com/Winding6636/ThanatoStylUserCSS
@@ -17,7 +17,7 @@ Integration Style Theme Codes
 
 :: 2020/01/09 ページ再ビルド対応 + 微修正
 :: 03/15 コードミス修正。正規表現に変更
-:: 04/17 色々修正。設定機能仮追加(Live向け)
+:: 04/17 色々修正。設定機能仮追加(Live向け) // /28 ニコるで見づらい修正
 
 
 nicoLive
@@ -680,6 +680,10 @@ nicoLive
 	.CommentPostContainer-commentInput,
 	.CommentPostContainer-commandInput {
 		border-left: 1px solid #fff;
+	}
+	/* ニコる色 */
+	.CommentPanelContainer [data-row-nicoru-rank="1"] {
+		color: black;
 	}
 
 	/* メニューアイコン欄 */
