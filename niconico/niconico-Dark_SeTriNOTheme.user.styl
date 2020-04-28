@@ -36,6 +36,7 @@ Mypage
 
 
 MenuBar
+	@var	checkbox	simpleplan	"メニューバーシンプル化(以下要素含む)" 0
 	@var	checkbox	premButton	"プレミアム登録ボタン" 1
 	@var	checkbox	NicoPButton	"ニコニコポイントボタン" 0
 	
@@ -1219,14 +1220,17 @@ MenuBar
 	}
 
 	/* シンプルプラン */
-	.siteHeaderHorizon,
-	#siteHeader #siteHeaderInner.ul.li,
-	#menu-ranking {
-		display: none !important;
+	if simpleplan {
+		.siteHeaderHorizon,
+		#siteHeader #siteHeaderInner.ul.li,
+		#menu-ranking {
+			display: none !important;
+		}
+		a#btn_usermenu_join {
+			display: block !important;
+		}
 	}
-	a#btn_usermenu_join {
-		display: block !important;
-	}
+	
 
 	/* ニコポ購入＋ボタン */
 	if NicoPButton {
