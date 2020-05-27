@@ -1,0 +1,22 @@
+/* ==UserStyle==
+@name           YTMusic_VolumeLong
+@namespace     Winding
+@version        1.0.0
+@description    YoutubeMusicのサウンドバー短すぎ問題
+@author         Winding <Winding+git@kazuki.xyz>
+@homepageURL    https://github.com/Winding6636/ThanatoStylUserCSS
+@supportURL     https://github.com/Winding6636/ThanatoStylUserCSS/issues
+@license        MIT
+@preprocessor   stylus
+==/UserStyle== */
+
+@-moz-document regexp("https?://music.youtube.com/.*") {
+	.volume-slider.ytmusic-player-bar {
+		width: 100%;
+	}
+	@media (min-width: 1149px) {
+		#right-controls {
+			width: 392px !important;
+		}
+	}
+}
