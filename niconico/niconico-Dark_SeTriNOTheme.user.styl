@@ -1,8 +1,8 @@
 /* ==UserStyle==
 @name           Niconico DarkTheme By SeTriNO
 @namespace      Winding
-@version        1.7.3
-@revision        365
+@version        1.7.5
+@revision        370
 @description    Niconico Dark Theme & Custom CSS & Ad,Rec Block :: Project SeTriNO ::
 @author         Winding (kazuki.xyz), NekotenYuuna (nek010n.tk)
 @homepageURL	https://github.com/Winding6636/ThanatoStylUserCSS
@@ -20,6 +20,7 @@ Integration Style Theme Codes
 :: 04/17 色々修正。設定機能仮追加(Live向け) // /28 ニコるで見づらい修正
 :: /28 設定項目追加
 :: 5/6 一部追記修正
+:: 6/27 仕様変更対応と変更箇所追加
 
 ::___cover-button___1IRNL TSでのミニゲ制限
 
@@ -51,6 +52,12 @@ MenuBar
 	Themes Dark Style in ncLives
 	:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:
 	*/
+
+	/* テスト:: ミニゲーム制限抑制 */
+	.___cover-button___1IRNL {
+		display: none;
+	}
+	
 	body {
 		background-color: #1a1a1a;
 	}
@@ -155,6 +162,9 @@ MenuBar
 	.___follow-status___37jv9[data-value=follow] {
 		color:white;
 		background:#404040;
+	}
+	.___follow-toggle-form___2U2io[data-follow-status=follow] .___follow-status___24r9l {
+		color: #666
 	}
 	/*tag*/
 	.___player-status___BQ7B7,
@@ -293,7 +303,8 @@ MenuBar
 	.___name-text-box___2gFaQ,
 	.___group-name-anchor___3ACS_,.___group-name-anchor___2nvQS,
 	.___community-message___1bCsl,.___community-message___fWBhe, /* コミュニティーフォロー状態文字 */
-	.___user-name-anchor___2Iu1c,.___user-name-anchor___l-IDw,/*ユーザ放送*/
+	.___coaching-message___2G_It, /* フォロー下文字 */
+	.___user-name-anchor___2Iu1c,.___user-name-anchor___l-IDw,.___user-name___b3Gb4,/*ユーザ放送*/
 	.___channel-name-anchor___2njrt,.___channel-name-anchor___dQ-bQ,/*チャンネル放送*/
 	.___level___15r7_,.___level___2Pj85, /* レベル */
 	.___nicoad-count___3yujW > span > button, /*コメント欄カウント文字*/
@@ -303,15 +314,25 @@ MenuBar
 	.___tag-widget___2CxNW [class*=___edit-button___] /* タグedit */,
 	.___statistics-item___s3Pvn>span>button,
 	.___statistics-item___s3Pvn>span>span, /* コメント/おすすめタブ */
-	.___heading___14I8Y, /* 関連コンテンツ */
-	.___content-title___uHN8q /* 関連タイトル */
+	.___duration___1JLRl, .___content___1pUhn, /* おすすめ生放送ステータス部*/
+	.___heading___14I8Y /* 関連コンテンツ */
 	{
-		color: white !important;
+		color: #fff !important;
 	}
 
 	/* TextBlack */
 	.___program-card___x3vdg:hover p {
 		color: black !important;
+	}
+
+	.___content-title___uHN8q /* 関連タイトル */ {
+		color: #fff;
+	}
+	.___content-title___uHN8q:hover {
+		color: #000;
+	}
+	.___content-preview___1ShLa:hover {
+		background-color: #000;
 	}
 
 	/* .___onair-time___xWLfr, {
@@ -771,8 +792,14 @@ MenuBar
 
 	/* ホバー色 */
 	.CommentPanelContainer [class*=___table-row___]:hover,
-	.CommentPanelDataGrid .CommentPanelDataGrid-TableRow:hover {
+	.CommentPanelDataGrid .CommentPanelDataGrid-TableRow:hover,
+	.___table-row___ptvPu:hover /* NG テキスト*/
+	{
 		background: #666;
+		color: #fff;
+	}
+	
+	.___comment-number___2Qws3:hover {
 		color: #fff;
 	}
 
