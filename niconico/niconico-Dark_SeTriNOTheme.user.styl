@@ -1,8 +1,8 @@
 /* ==UserStyle==
 @name           Niconico DarkTheme By SeTriNO
 @namespace      Winding
-@version        1.7.5
-@revision        370
+@version        1.7.6
+@revision        373
 @description    Niconico Dark Theme & Custom CSS & Ad,Rec Block :: Project SeTriNO ::
 @author         Winding (kazuki.xyz), NekotenYuuna (nek010n.tk)
 @homepageURL	https://github.com/Winding6636/ThanatoStylUserCSS
@@ -20,7 +20,7 @@ Integration Style Theme Codes
 :: 04/17 色々修正。設定機能仮追加(Live向け) // /28 ニコるで見づらい修正
 :: /28 設定項目追加
 :: 5/6 一部追記修正
-:: 6/27 仕様変更対応と変更箇所追加
+:: 6/27 仕様変更対応と変更箇所追加 :: addfix
 
 ::___cover-button___1IRNL TSでのミニゲ制限
 
@@ -314,25 +314,30 @@ MenuBar
 	.___tag-widget___2CxNW [class*=___edit-button___] /* タグedit */,
 	.___statistics-item___s3Pvn>span>button,
 	.___statistics-item___s3Pvn>span>span, /* コメント/おすすめタブ */
-	.___duration___1JLRl, .___content___1pUhn, /* おすすめ生放送ステータス部*/
-	.___heading___14I8Y /* 関連コンテンツ */
+	.___start-at___3ynDg,.___duration___1JLRl, .___content___1pUhn, /* おすすめ生放送ステータス部*/
+	.___heading___14I8Y, /* 関連コンテンツ */
+	.___content-title___uHN8q, /* 関連タイトル */
+	.___table-row___27ghe:hover .___comment-number___2Qws3, /* コメ番ホバー */
+	.___table-row___27ghe:hover .___comment-text___2cPL0 /* 運営コメホバー */
 	{
 		color: #fff !important;
 	}
 
 	/* TextBlack */
-	.___program-card___x3vdg:hover p {
+	.___program-card___x3vdg:hover p,
+	.___related-content-card___cf8E8:hover .___content-title___uHN8q,
+	.___program-card___x3vdg:hover .___start-at___3ynDg, /* おすすめ生放送ステータスホバー*/
+	.___program-card___x3vdg:hover .___duration___1JLRl,
+	.___program-card___x3vdg:hover .___content___1pUhn {
 		color: black !important;
 	}
 
-	.___content-title___uHN8q /* 関連タイトル */ {
-		color: #fff;
-	}
-	.___content-title___uHN8q:hover {
-		color: #000;
-	}
-	.___content-preview___1ShLa:hover {
+	.___related-content-card___cf8E8:hover .___content-preview___1ShLa {
 		background-color: #000;
+	}
+
+	.___comment-text___2cPL0 {
+		color: #a2a2a2;
 	}
 
 	/* .___onair-time___xWLfr, {
@@ -451,7 +456,8 @@ MenuBar
 	.___menu___2vFdX,
 	.___heading___3cF0t,
 	.___select-box___2xnyY,
-	.___tooltip___2GW8j{
+	.___tooltip___2GW8j,
+	.___table-row___ptvPu:hover{
 		color: white;
 		background-color: #444444;
 	}
@@ -792,17 +798,11 @@ MenuBar
 
 	/* ホバー色 */
 	.CommentPanelContainer [class*=___table-row___]:hover,
-	.CommentPanelDataGrid .CommentPanelDataGrid-TableRow:hover,
-	.___table-row___ptvPu:hover /* NG テキスト*/
-	{
+	.CommentPanelDataGrid .CommentPanelDataGrid-TableRow:hover {
 		background: #666;
 		color: #fff;
 	}
 	
-	.___comment-number___2Qws3:hover {
-		color: #fff;
-	}
-
 	/* 右クリック */
 	.CommentPanelContextMenuContainer {
 		border: 1px solid #282828;
