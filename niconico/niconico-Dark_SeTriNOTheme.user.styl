@@ -1,8 +1,8 @@
 /* ==UserStyle==
 @name           Niconico DarkTheme By SeTriNO
 @namespace      Winding
-@version        1.7.6
-@revision        375
+@version        1.8.0
+@revision        380
 @description    Niconico Dark Theme & Custom CSS & Ad,Rec Block :: Project SeTriNO ::
 @author         Winding (kazuki.xyz), NekotenYuuna (nek010n.tk)
 @homepageURL	https://github.com/Winding6636/ThanatoStylUserCSS
@@ -21,6 +21,7 @@ Integration Style Theme Codes
 :: /28 設定項目追加
 :: 5/6 一部追記修正
 :: 6/27 仕様変更対応と変更箇所追加 :: addfix
+:: 7/27 ニコニコリニューアル仕様変更の対応を開始。動画の変更箇所修正とテスト
 
 ::___cover-button___1IRNL TSでのミニゲ制限
 
@@ -28,6 +29,9 @@ nicoLive
 @var            checkbox  CommentOrder   "LIVE: コメント欄位置替え" 1
 @var            checkbox  InfoTagOrder   "LIVE: 放送情報位置替え" 0
 @var            checkbox  TabListOrder   "LIVE: コメントタブ位置替え" 0
+
+nicoVideo
+@var	checkbox	EasyComeButt	"-動作しません-VIDEO: フルスクEasyコメントを非表示"	1
 
 
 Mypage
@@ -696,7 +700,8 @@ MenuBar
 	/* .:. Player left contents .:. */
 
 	/* ログインするとコメントできます */
-	.CommentShutter.CommentShutter--frost {
+	.CommentShutter.CommentShutter--frost,
+	.CommentShutter:empty {
 		background-color: hsla(0, 0%, 12%, 0.8);
 	}
 
@@ -705,13 +710,6 @@ MenuBar
 	textarea {
 		color: #fff;
 	}
-	.CommentPostContainer-commandInput {
-		border-right: 1px solid #252525;
-		background-color: #191919;
-	}
-	.CommentPostContainer-commentInput {
-		background-color: #191919;
-	}
 
 	/* コメント入力｜シャッター */
 	.CommentShutter {
@@ -719,13 +717,44 @@ MenuBar
 	}
 
 	/* コメント欄 */
+	.ControllerBoxCommentAreaContainer,
+	.EasyCommentContainer {
+		background-color: #191919;
+		border-right: 0px solid #ddd;
+	}
+	.CommentPostContainer-commentInput,
+	.CommentPostContainer-commandInput,
+	.EasyCommentButton {
+		border: 1px solid #808080;
+		background-color: #191919;
+	}
+	.EasyCommentButton {
+		color: #ddd;
+	}
+	
+	/* fullscreen 判定かつ ifで動かないので様子見 */
+	if EasyComeButt {
+		.EasyCommentContainer.is-fullscreen {
+			display: block
+		}
+	} else {
+		.EasyCommentContainer.is-fullscreen {
+			display: none
+		}
+	}
 
 	/* Buttom */
-	button.CommentPostButton.ActionButton {
+	button.CommentPostButton.ActionButton,
+	.LikeButton:hover {
 		background-color: gray;
 	}
-	button.CommentPostButton.ActionButton:hover {
+	button.CommentPostButton.ActionButton:hover,
+	.LikeButton {
 		background-color: #444444;
+	}
+	#LikeIcon_svg__frame-0,
+	.LikeButton>span {
+		color: #fff;
 	}
 
 	/* 背景色・幅384px */
@@ -736,10 +765,7 @@ MenuBar
 		width: 384px;
 		background: #191919;
 	}
-	.CommentPostContainer-commentInput,
-	.CommentPostContainer-commandInput {
-		border-left: 1px solid #fff;
-	}
+
 	/* ニコる色 */
 	.CommentPanelContainer [data-row-nicoru-rank="1"],
 	.CommentPanelContainer [data-row-nicoru-rank="2"],
@@ -787,7 +813,7 @@ MenuBar
 	.CommentPanelContainer .CommentPanelDataGrid,
 	.WatchAppContainer,
 	.VideoMediaObject-body a,.NextPlayVideoContainer-body a,.NextPlayVideoContainer-continuous,
-	.WatchRecommendation-heading,.NextPlayVideoContainer-controls{
+	.WatchRecommendation-heading,.NextPlayVideoContainer-controls {
 		color: #fff !important;
 	}
 
@@ -995,8 +1021,10 @@ MenuBar
 	.VideoViewCountMeta-title,
 	.CommentCountMeta-title,
 	.MylistCountMeta-title,
+	.VideoGenreMeta-title,
 	.CategoryRankMeta-categoryName,
-	.CategoryRankMeta-title {
+	.CategoryRankMeta-title,
+	.GenreRankMeta-genreName {
 		color: #abc;
 	}
 
@@ -1005,7 +1033,8 @@ MenuBar
 	.VideoViewCountMeta-counter,
 	.CommentCountMeta-counter,
 	.MylistCountMeta-counter,
-	.CategoryRankMeta-yesterdayRank {
+	.CategoryRankMeta-yesterdayRank,
+	.GenreRankMeta-yesterdayRank {
 		color: #cde;
 	}
 
@@ -1159,6 +1188,7 @@ MenuBar
 	}
 
 	/* .:.  非表示フィルター .:. */
+	/* メニュー追加 */
 	.MarqueeContainer,
 	.CommentPanelBannerAd,
 	.VideoMenuContainer-uadBalloonWrapper,
@@ -1820,3 +1850,29 @@ MenuBar
 		max-width: 840px;
 	}
 } /* @-moz-document END */
+
+@-moz-document regexp("https?://www.nicovideo.jp/my/.*") {
+	/* :⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:
+						ReNewMyPage modified
+	:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅: */
+
+	.Snap .Dropdown .OtherMypageLinks {
+		padding-bottom: 440px;
+	}
+
+} /* @-moz-document END */
+@-moz-document regexp("https?://nicoad.nicovideo.jp/video/publish/.*") {
+	/* :⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:
+						New Mypage DarkTheme
+	:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅: */
+
+	.Snap .Dropdown .OtherMypageLinks {
+		padding-bottom: 440px;
+	}
+} /* @-moz-document END */
+
+/* MEMO
+
+	Snap Dropdown OtherMypageLinks
+		padding-bottom: 440px;
+*/
