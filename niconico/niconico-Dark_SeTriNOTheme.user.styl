@@ -1,8 +1,8 @@
 /* ==UserStyle==
 @name           Niconico DarkTheme By SeTriNO
 @namespace      Winding
-@version        1.8.0
-@revision        380
+@version        1.8.7
+@revision        382
 @description    Niconico Dark Theme & Custom CSS & Ad,Rec Block :: Project SeTriNO ::
 @author         Winding (kazuki.xyz), NekotenYuuna (nek010n.tk)
 @homepageURL	https://github.com/Winding6636/ThanatoStylUserCSS
@@ -22,6 +22,7 @@ Integration Style Theme Codes
 :: 5/6 一部追記修正
 :: 6/27 仕様変更対応と変更箇所追加 :: addfix
 :: 7/27 ニコニコリニューアル仕様変更の対応を開始。動画の変更箇所修正とテスト
+:: 7/29 ニコ生仕様変更修正
 
 ::___cover-button___1IRNL TSでのミニゲ制限
 
@@ -35,6 +36,8 @@ nicoVideo
 
 
 Mypage
+	@var	checkbox	MypageDark	"MYPAGE: マイページのダークモード" 0
+	@var	checkbox	MyPModifi	"MYPAGE: マイページの(気に入らない所)修正" 0
 	nicoLive
 	@var	checkbox	userDetail	"MYPAGE/Live: アカウント情報の表示" 1
 	
@@ -177,7 +180,9 @@ MenuBar
 	.___header-skin___CIVUe,
 	.___header___IlpMt,
 	.___header___1M2Xi,
-	.___tab-list___2Db6X {
+	.___tab-list___2Db6X,
+	.___tab-area___3ACye,
+	.___tab___1OVyJ {
 		background-color: #222222;
 		border-color: #222222;
 	}
@@ -317,14 +322,15 @@ MenuBar
 	.___tag-widget___2CxNW [class*=___tag-register-form___] [class*=___faq-anchor___]:after /* タグedit_help */,
 	.___tag-widget___2CxNW [class*=___edit-button___] /* タグedit */,
 	.___statistics-item___s3Pvn>span>button,
-	.___statistics-item___s3Pvn>span>span, /* コメント/おすすめタブ */
-	.___start-at___3ynDg,.___duration___1JLRl, .___content___1pUhn, /* おすすめ生放送ステータス部*/
+	.___statistics-item___s3Pvn>span>span, .___tab___1OVyJ /* コメント/おすすめタブ */
+	.___start-at___3ynDg,.___duration___1JLRl, .___content___1pUhn, .___content___1_nBL,  /* おすすめ生放送ステータス部*/
 	.___heading___14I8Y, /* 関連コンテンツ */
 	.___content-title___uHN8q, /* 関連タイトル */
 	.___table-row___27ghe:hover .___comment-number___2Qws3, /* コメ番ホバー */
-	.___table-row___27ghe:hover .___comment-text___2cPL0 /* 運営コメホバー */
-	{
-		color: #fff !important;
+	.___table-row___27ghe:hover .___comment-text___2cPL0 /* 運営コメホバー */,
+	.___content___l4fUf,.___header___PJE7_, .___heading___2ym15, .___player-screen-size-menu-button-field___2gb6o, .___player-screen-size-menu-button-field___2gb6o>[class*=___target___]>[class*=___symbol-mark___], .___player-performance-setting-menu___ORz3p /* AdvSetting */
+		{
+		color: #ffffff !important;
 	}
 
 	/* TextBlack */
@@ -475,6 +481,25 @@ MenuBar
 		transform: scale(0.08);
 	}
 
+	/* AdvanceSettings */
+	.___header___3LzXR {
+		background-color: #333;
+	}
+	.___player-setting-view___1fMCm {
+		background-color: #777;
+		border-color: #222;
+	}
+	.___player-screen-size-menu-button-field___2gb6o:not([aria-disabled=true]):hover,
+ 	.___anonymous-comment-view-toggle-button-field___2HkkS:not([aria-disabled=true]):hover,
+ 	.___comment-renderer-lite-mode-toggle-button-field___1sH0X:not([aria-disabled=true]):hover, 
+ 	.___player-akashic-effect-disabled-toggle-button-field___2Buxb:not([aria-disabled=true]):hover,
+	 .___item___2I24P:not([aria-disabled=true]):hover {
+		background-color: #444444;
+	}
+	.___symbol-mark___1-FKh>path {
+		fill:white;
+	}
+
 
 	/* popup */
 	.___image-guide___Adcbb {
@@ -484,7 +509,8 @@ MenuBar
 	/* svg icon color*/
 	.___statistics-item___s3Pvn>svg>path, /**/
 	.___ng-button___llpCj path, /*NGボタン*/
-	.___symbol-mark___3ahYk>path {
+	.___symbol-mark___3ahYk>path,
+	.___symbol-mark___27-28 rect, .___symbol-mark___27-28>path {
 		fill : white;
 	}
 
@@ -502,15 +528,25 @@ MenuBar
 
 	/* LiveInfomationTag */
 	if InfoTagOrder {
-		.___program-panel___2aOon {
+		.___program-panel___2aOon,
+		.___program-information-panel___L2N5e {
 			order: 1;
 		}
 	}
 	/* LiveCommeTag */
 	if TabListOrder {
-		.___tab-list___2Db6X {
+		.___tab-list___2Db6X,
+		.___tab-area___3ACye {
 			order: 2;
 		}
+	}
+	
+	/* LiveCommentTab */
+	.___tab___1OVyJ[aria-selected="true"] {
+		background-color: #000;
+	}
+	.___tab___1OVyJ[aria-selected="false"] {
+		background-color: #000;
 	}
 
 	/* TimeShift */
@@ -1861,14 +1897,17 @@ MenuBar
 	}
 
 } /* @-moz-document END */
-@-moz-document regexp("https?://nicoad.nicovideo.jp/video/publish/.*") {
+@-moz-document regexp("https?://www.nicovideo.jp/my/.*") {
 	/* :⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:
 						New Mypage DarkTheme
 	:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅:⋅: */
 
-	.Snap .Dropdown .OtherMypageLinks {
-		padding-bottom: 440px;
+	if MypageDark {
+		.Snap .Dropdown .OtherMypageLinks {
+			padding-bottom: 440px;
+		}
 	}
+
 } /* @-moz-document END */
 
 /* MEMO
