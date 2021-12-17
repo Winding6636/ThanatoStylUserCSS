@@ -1,8 +1,6 @@
 # ThanatoStylUserCSS
 Stylusで使えるカスタムCSSのまとめリポ :⋅: ニコニコダークテーマ(nicovideo) / GoogleSearchGASHidden :⋅:
-
-
-
+<br /><br />
 
 ニコニコダークテーマは更新が面倒になったので更新しません。(気に入らない部分だけの修正)
 
